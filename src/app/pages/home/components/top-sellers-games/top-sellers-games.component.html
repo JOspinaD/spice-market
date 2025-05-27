@@ -1,0 +1,32 @@
+<div class="flex justify-content-center flex-wrap">
+  <h1 class="neon-text">Lo mas vendido</h1>
+</div>
+<div class="flex flex-wrap justify-content-center gap-4 px-4 ">
+  <ng-container *ngFor="let game of games.slice(0, 6)">
+    <div class="p-card w-3">
+      <div class="flex flex-column align-items-center">
+        <img
+          [src]="game.cover"
+          [alt]="game.title"
+          class="w-full"
+          style="height: 160px; object-fit: cover"
+        />
+      </div>
+
+      <div class="p-card-body pt-3">
+        <h3 class="neon-text text-base font-semibold text-center mb-2">
+          {{ game.title }}
+        </h3>
+        <div class="text-center font-bold text-lg mb-2">
+          {{ game.price | currency }}
+        </div>
+        <p-button
+          icon="pi pi-shopping-cart"
+          label="Añadir"
+          class="w-full"
+          (onClick)="addToCart(game)"
+        ></p-button>
+      </div>
+    </div>
+  </ng-container>
+</div>

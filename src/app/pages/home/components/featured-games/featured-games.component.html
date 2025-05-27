@@ -1,21 +1,30 @@
-<div class="w-6 mx-auto">
-  <p-carousel [value]="games"  [numVisible]="2" [numScroll]="1" [circular]="false" >
+<div class="flex justify-content-center flex-wrap">
+  <h1 class="neon-text">Juegos Mas Destacados</h1>
+</div>
+<div class="w-9 mx-auto">
+  <p-carousel *ngIf="!isLoading" [value]="games" [numVisible]="1" [circular]="false" autoplayInterval="3000">
     <ng-template let-game pTemplate="item">
-        <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4">
-            <div class="mb-4">
-                <div class="relative mx-auto">
-                    <img  [src]="game.cover" [alt]="game.title" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                </div>
-            </div>
-            <div class="mb-4 font-medium">{{ game.title }}</div>
-            <div class="flex justify-between items-center">
-                <div class="mt-0 font-semibold text-xl">{{ game.price | currency }}</div>
-                <span>
-                    <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
-                    <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
-                </span>
-            </div>
+      <div class="relative h-[250px] md:h-[350px] group">
+        <img
+          [src]="game.cover"
+          [alt]="game.title"
+          class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+        />
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent"
+        >
+          <h2
+            class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-rose-600 text-transparent bg-clip-text"
+          >
+            {{ game.title }}
+          </h2>
+          <p-button
+            label="Comprar - {{ game.price | currency }}"
+            icon="pi pi-arrow-right"
+            styleClass="mt-2 bg-gradient-to-r from-amber-500 to-pink-600 border-none"
+          ></p-button>
         </div>
+      </div>
     </ng-template>
   </p-carousel>
 </div>

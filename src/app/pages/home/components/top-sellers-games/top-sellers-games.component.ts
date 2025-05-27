@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { CarouselModule } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
 import { Game } from '../../../../shared/models/game';
 import { GameService } from '../../../../core/services/game.service';
+import { CartService } from '../../../../core/services/cart.service';
+import { CardModule } from 'primeng/card';
 
 @Component({
-  selector: 'app-featured-games',
-  imports: [ButtonModule, CarouselModule, CommonModule],
-  templateUrl: './featured-games.component.html',
+  selector: 'app-top-sellers-games',
+  imports: [ButtonModule, CommonModule, CardModule],
+  templateUrl: './top-sellers-games.component.html',
 })
-export class FeaturedGamesComponent implements OnInit {
-   games: Game[] = [];
+export class TopSellersGamesComponent implements OnInit {
+  games: Game[] = [];
   isLoading = true;
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private cartService: CartService,
+  ) {}
+
   ngOnInit(): void {
-    this.gameService.getFeaturedGames().subscribe({
+    this.gameService.getTopSellers().subscribe({
       next: (games) => {
         this.games = games;
         this.isLoading = false;
@@ -26,5 +31,9 @@ export class FeaturedGamesComponent implements OnInit {
         this.isLoading = false;
       },
     });
+  }
+
+  addToCart(game: Game): void {
+    this.cartService.addToCart(game);
   }
 }

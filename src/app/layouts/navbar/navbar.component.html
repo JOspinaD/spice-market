@@ -1,0 +1,42 @@
+<p-menubar [model]="items"  styleClass="sticky-navbar">
+  <ng-template #start>
+    <p-button variant="text" (click)="redirectToHome()">
+      <svg width="70" height="70" viewBox="0 0 35 35">
+
+        <image href="assets/logo2.png" width="35" height="35" />
+      </svg>
+    </p-button>
+  </ng-template>
+  <ng-template #item let-item let-root="root">
+    <div class="neon-text">
+      <a pRipple class="flex items-center p-menubar-item-link">
+        <span>{{ item.label }}</span>
+        <p-badge
+          *ngIf="item.badge"
+          [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
+          [value]="item.badge"
+        />
+
+        <i
+          *ngIf="item.items"
+          [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"
+        ></i>
+      </a>
+    </div>
+  </ng-template>
+  <ng-template #end>
+    <div class="flex items-center gap-2">
+      <div class="z-0 relative flex align-items-center justify-content-center p-4 ">
+        <p-button variant="text" (click)="redirectToCart()">
+          <i class="pi pi-shopping-cart" style="font-size: 2rem"></i>
+        </p-button>
+      </div>
+      <p-button variant="text"  (click)="redirectToLogin()">
+        <p-avatar
+          image="assets/games/spiceLogo.jpg"
+          shape="circle"
+        />
+      </p-button>
+    </div>
+  </ng-template>
+</p-menubar>
