@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.scss */
+/* Importa fuentes (opcional si usas CSS nativo) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+:root {
+  --p-menubar-border-color: #ff9900;
+  --p-menubar-bg: #1a0e00; /* Un fondo oscuro para resaltar el neón */
+}
+
+/* Estilo del menú */
+.p-menubar {
+  background-color: var(--p-menubar-bg);
+  border: 1px solid var(--p-menubar-border-color);
+  box-shadow: 0 0 5px #ff9900, 0 0 10px #ff9900;
+}
+
+
+body {
+  font-family: var(--font-body, 'Rajdhani'), sans-serif;
+  font-weight: 500;
+}
+
+h1, h2, h3, .game-title {
+  font-family: var(--font-heading, 'Orbitron'), sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #00f, 0 0 10px #0066ff;
+}
+
+.neon-text span {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.custom-avatar {
+  width: 48px;
+  height: 48px;
+}

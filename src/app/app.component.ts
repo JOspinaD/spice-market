@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeroSectionComponent } from "./pages/home/components/hero-section/hero-section.component";
-import { FeaturedGamesComponent } from "./pages/home/components/featured-games/featured-games.component";
+import { NavbarComponent } from "./layouts/navbar/navbar.component";
+import { DuneBackgroundComponent } from "./layouts/dune-background/dune-background.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeroSectionComponent, FeaturedGamesComponent],
+  imports: [RouterOutlet, NavbarComponent, DuneBackgroundComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
