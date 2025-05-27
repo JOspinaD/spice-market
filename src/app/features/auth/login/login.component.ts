@@ -23,7 +23,6 @@ import { DuneBackgroundComponent } from "../../../layouts/dune-background/dune-b
     DuneBackgroundComponent
 ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
   providers: [MessageService]
 })
 export class LoginComponent {
