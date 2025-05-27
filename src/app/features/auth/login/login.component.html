@@ -1,0 +1,53 @@
+<div class="min-h-screen flex align-items-center justify-content-center p-3">
+  <p-card class="login-card w-full md:w-6 lg:w-4 shadow-6" header="SpiceMarket - Iniciar Sesión">
+    <form (ngSubmit)="onSubmit()" class="flex flex-column gap-3">
+      <!-- Email -->
+      <div class="field">
+        <label htmlFor="email" class="block text-300 font-medium mb-2">Email</label>
+        <input
+          type="email"
+          pInputText
+          id="email"
+          [(ngModel)]="formData().email"
+          name="email"
+          placeholder="tucorreo@ejemplo.com"
+          required
+          class="w-full"
+        />
+      </div>
+
+      <!-- Contraseña -->
+      <div class="field">
+        <label htmlFor="password" class="block text-300 font-medium mb-2">Contraseña</label>
+        <p-password
+          id="password"
+          [(ngModel)]="formData().password"
+          name="password"
+          placeholder="••••••••"
+          [feedback]="false"
+          [toggleMask]="true"
+          required
+          class="w-full"
+        ></p-password>
+      </div>
+
+      <!-- Botón de envío -->
+      <p-button
+        type="submit"
+        label="Iniciar Sesión"
+        icon="pi pi-sign-in"
+        [loading]="loading()"
+        class="mt-3"
+      ></p-button>
+
+      <!-- Enlace a registro -->
+      <div class="flex justify-content-center mt-3">
+        <span class="text-300">¿No tienes cuenta?</span>
+        <a routerLink="/auth/register" class="ml-2 text-primary-300 hover:underline cursor-pointer">
+          Regístrate
+        </a>
+      </div>
+    </form>
+  </p-card>
+</div>
+<app-dune-background></app-dune-background>
